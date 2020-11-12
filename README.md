@@ -4,11 +4,11 @@ Desenvolvido para o estudar o funcionamento do Zookeeper por meio da biblioteca 
 Ter o [Zookeeper](https://zookeeper.apache.org/) baixado e instalados o [Python 3](https://www.python.org/), o gerenciador de pacotes pip e a biblioteca Kazoo.
 ### :wrench: Instalando
 1. **Python 3:** `$ sudo apt-get install python3`
-2. **Pip 3:**: `$ sudo apt install python-pip3`
+2. **Pip 3:** `$ sudo apt install python-pip3`
 3. **Kazoo:** `$ pip3 install kazoo`
 ### :wrench: Verificando se foram instalados corretamente
 1. **Python 3:** `$ python3 --version`
-2. **Pip 3:**: `$ pip3 --version`
+2. **Pip 3:** `$ pip3 --version`
 3. **Kazoo:** `$ pip3 install kazoo`
 ## :heavy_check_mark: Preparando o ambiente
 No **terminal**, inicie o servidor Zookeeper:
@@ -115,6 +115,7 @@ zk.stop()
 ```
 ### :paperclip: Deletando Dados
 Semelhante à atualizar os dados, porém, utiliza-se **delete()**
+
 `zk.delete("/my/favorite/node", recursive=True)`
 
 ### :paperclip: [DefaultWatcher.py](./examples/DefaultWatcher.py)
@@ -154,17 +155,17 @@ time.sleep(10)
 zk.stop()
 ```
 ## :boom: Sobre o Kazoo
-### :pushpin: Estados Kazoo
+### Estados Kazoo
 - Lost;
 - Connected;
 - Suspended.
 
 Quando uma instância do KazooClient é criada, ela está no estado LOST. Quando for estabilizada, passa para o CONNECTED. Se houver algum problema ou precisa conectar a outro cluster do Zookeeper, vai passar para o estado SUSPENDED (comandos não podem ser rodados por essa razão) e também quando o nó não mais pertence ao quórum.
 
-### :pushpin: Whatchers
+### Whatchers
 Whatchers no Zookeeper requere que a função Watch seja re-configurada toda vez que ocorra um evento. No kazoo, é possível utilizar este tipo de watcher, mas também possui uma API mais simples, que não necessita desta re-configuração recorrente.
 
-### :pushpin: Transictions
+### Transictions
 A versão Zookeeper 3.4 e acima permitem que sejam enviados vários comandos de uma vez que serão commitados como uma unidade. O resultado desta transação será então uma lista de sucessos e/ou falhas resultantes de cada comando desta transação. 
 > Obs.: Ou todos os comandos irão falhar ou serão bem sucedidos. 
 
@@ -183,7 +184,7 @@ results = transaction.commit()
 
 zk.stop()
 ```
-## :warning: Progresso
+## :warning: Progresso :warning: 
 - [X] Basic Usage
 - [ ] Asynchronous Usage 
 - [ ] Implementation Details
