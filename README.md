@@ -161,8 +161,8 @@ zk.stop()
 
 Quando uma instância do KazooClient é criada, ela está no estado LOST. Quando for estabilizada, passa para o CONNECTED. Se houver algum problema ou precisa conectar a outro cluster do Zookeeper, vai passar para o estado SUSPENDED (comandos não podem ser rodados por essa razão) e também quando o nó não mais pertence ao quórum.
 
-### Whatchers
-Whatchers no Zookeeper requere que a função Watch seja re-configurada toda vez que ocorra um evento. No kazoo, é possível utilizar este tipo de watcher, mas também possui uma API mais simples, que não necessita desta re-configuração recorrente.
+### Watchers
+Watchers no Zookeeper requere que a função Watch seja re-configurada toda vez que ocorra um evento. No kazoo, é possível utilizar este tipo de watcher, mas também possui uma API mais simples, que não necessita desta re-configuração recorrente.
 
 ### Transictions
 A versão Zookeeper 3.4 e acima permitem que sejam enviados vários comandos de uma vez que serão commitados como uma unidade. O resultado desta transação será então uma lista de sucessos e/ou falhas resultantes de cada comando desta transação. 
