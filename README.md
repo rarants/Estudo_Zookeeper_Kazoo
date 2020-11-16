@@ -183,7 +183,7 @@ results = transaction.commit()
 
 zk.stop()
 ```
-## :warning: Progresso :warning: 
+## :warning: Progresso ([referêcia](https://kazoo.readthedocs.io/en/latest/)) :warning: 
 - [X] Basic Usage
 - [ ] Asynchronous Usage 
 - [ ] Implementation Details
