@@ -20,10 +20,10 @@ def search_params(p):
 
 # Função para verificar se os thresholds estão sendo ultrapassados (AINDA NÃO TESTADA = é só o "algoritmo")
 def check_thresholds(initial_p, p):
-    # If memory_usage > 80%
+    # Se memory_usage > 80%
     if p.get("memory_usage") > 80:
         print("ATENTION: Memory usage more than 80%!")
-    # If process_number (now) > initial value found  in 10%
+    # Se process_number (now) > valor inicial encontrado em 10%
     if p.get("process_number") > initial_p.get("process_number") + 10:
         print("Number of process is like 10% more than initial value")
 
@@ -49,7 +49,7 @@ zk.create("/reports")
 search_params(initial_params)
 params = initial_params.copy()
 
-# Create znode's tree, save params in znode's tree and set a watcher
+# Criar uma árvore de zenodes, salvar os parâmetros iniciais na árvore e setar um watcher # (ainda não funcional)
 for i in range (0, 4):
     zk.create(path+str(list(params.keys())[i]))
     zk.set(path+str(list(params.keys())[i]), str(list(params.values())[i]).encode('utf-8'))
@@ -66,3 +66,37 @@ for i in range (0, 4):
 # Termina a conexão
 zk.stop()
 ```
+## :boom: Sobre a psutil
+### Funções utilizadas
+- psutil.virtual_memory();
+- psutil.cpu_percent(1, percpu=True);
+- psutil.disk_usage("/");
+- len(psutil.pids())
+#### psutil.virtual_memory()
+Retorna estatísticas sobre o uso da memória do sistema, em forma de tupla, com os seguintes campos (em bytes):
+- Total: total de memória física (exclusive swap);
+- Avaiable: memória que pode ser fornecida instantaneamente para processos sem que o sistema entre em swap;
+- Used: memória utilizada;
+- Free: memória que não está sendo utilizada que está disponível (mas não reflete a memória real disponível, que no caso, é o  parâmetro **avaiable**;
+- Active: memória que está atualmente em uso ou foi recentemente utilizada (e por isso se encontra na RAM);
+- Inactive: memória marcada que não está em uso;
+- Buffers: cache utilizada para itens como metadados dos arquivos do sistema (file system metadata);
+- Cached: cache usada para vários propósitos;
+- Shared: Memória que pode ser acessada simultaneamente por vários processos;
+- Slab: Cache de estruturas de dados no kernel.
+#### psutil.cpu_percent(1, percpu=True)
+Quando o percpu é True, ele retorna uma lista de tuplas nomeadas para cada CPU lógica no sistema.
+Retorna um float que representa a utilização atual da CPU de todo o sistema como uma porcentagem. 
+- Intervalo > 0.0: compara os tempos de CPU do sistema decorridos antes e depois do intervalo (bloqueio). 
+- Intevalo = 0.0 ou None: compara os tempos de CPU do sistema decorridos desde a última chamada ou importação do módulo, retornando imediatamente. 
+#### psutil.disk_usage(path)
+Retorna estatísticas de uso do disco a respeito da partição contida no caminho dado (path), no formato de tupla, incluindo espaço total, usado e livre - expresso em bytes, mais o uso percentual do disco. 
+#### psutil.pids()
+Retorna uma lista em forma de tupla com todos os pid (process id/ ids dos processos). Ao utilizar a função len(), estamos contando quantos pids há naquele momento e, portanto, quantos processos.
+## :warning: Progresso ([referêcia](https://kazoo.readthedocs.io/en/latest/)) :warning: 
+- [X] Criar árvore de znodes
+- [X] Coletar os dados
+- [X] Salvar os dados na árvore de znodes
+- [ ] Implementar verificação dos thresholds
+- [ ] Implementar ação a ser tomada ao receber uma notificação do wathcer
+- [ ] Realizar a análise dos dados
