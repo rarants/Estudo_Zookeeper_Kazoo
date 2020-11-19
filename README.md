@@ -135,7 +135,7 @@ children  =  zk.get_children ( "/node2" ,  watch = watchEvent)
 
 zk.stop()
 ```
-### :paperclip: [Watcher.py](./examples/Watcher.py) (Ainda não funcional)
+### :paperclip: [Watcher.py](./examples/Watcher.py) :warning: (Ainda não funcional) :warning: 
 ```python
 from kazoo.client import KazooClient
 import time
