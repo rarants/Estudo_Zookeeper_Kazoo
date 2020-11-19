@@ -115,7 +115,9 @@ zk.stop()
 ### :paperclip: Deletando Dados
 Semelhante à atualizar os dados, porém, utiliza-se **delete()**
 
-`zk.delete("/my/favorite/node", recursive=True)`
+```python 
+zk.delete("/my/favorite/node", recursive=True)
+```
 
 ### :paperclip: [DefaultWatcher.py](./examples/DefaultWatcher.py)
 ```python
@@ -133,7 +135,7 @@ children  =  zk.get_children ( "/node2" ,  watch = watchEvent)
 
 zk.stop()
 ```
-### :paperclip: [Watcher.py](./examples/Watcher.py)
+### :paperclip: [Watcher.py](./examples/Watcher.py) (Ainda não funcional)
 ```python
 from kazoo.client import KazooClient
 import time
