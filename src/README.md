@@ -72,7 +72,7 @@ zk.stop()
 - psutil.cpu_percent(1, percpu=True);
 - psutil.disk_usage("/");
 - len(psutil.pids())
-#### psutil.virtual_memory()
+#### :mag: psutil.virtual_memory()
 Retorna estatísticas sobre o uso da memória do sistema, em forma de tupla, com os seguintes campos (em bytes):
 - Total: total de memória física (exclusive swap);
 - Avaiable: memória que pode ser fornecida instantaneamente para processos sem que o sistema entre em swap;
@@ -84,16 +84,16 @@ Retorna estatísticas sobre o uso da memória do sistema, em forma de tupla, com
 - Cached: cache usada para vários propósitos;
 - Shared: Memória que pode ser acessada simultaneamente por vários processos;
 - Slab: Cache de estruturas de dados no kernel.
-#### psutil.cpu_percent(1, percpu=True)
+#### :mag: psutil.cpu_percent(1, percpu=True)
 Quando o percpu é True, ele retorna uma lista de tuplas nomeadas para cada CPU lógica no sistema.
 Retorna um float que representa a utilização atual da CPU de todo o sistema como uma porcentagem. 
 - Intervalo > 0.0: compara os tempos de CPU do sistema decorridos antes e depois do intervalo (bloqueio). 
 - Intevalo = 0.0 ou None: compara os tempos de CPU do sistema decorridos desde a última chamada ou importação do módulo, retornando imediatamente. 
-#### psutil.disk_usage(path)
+#### :mag: psutil.disk_usage(path)
 Retorna estatísticas de uso do disco a respeito da partição contida no caminho dado (path), no formato de tupla, incluindo espaço total, usado e livre - expresso em bytes, mais o uso percentual do disco. 
-#### psutil.pids()
+#### :mag: psutil.pids()
 Retorna uma lista em forma de tupla com todos os pid (process id/ ids dos processos). Ao utilizar a função len(), estamos contando quantos pids há naquele momento e, portanto, quantos processos.
-## :warning: Progresso ([referêcia](https://kazoo.readthedocs.io/en/latest/)) :warning: 
+#### :warning: Progresso ([referêcia](https://kazoo.readthedocs.io/en/latest/)) :warning: 
 - [X] Criar árvore de znodes
 - [X] Coletar os dados
 - [X] Salvar os dados na árvore de znodes
