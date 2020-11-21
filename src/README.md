@@ -96,7 +96,8 @@ Retorna uma lista em forma de tupla com todos os pid (process id/ ids dos proces
 #### :warning: Progresso :warning: 
 - [X] Criar árvore de znodes
 - [X] Coletar os dados
-- [X] Salvar os dados na árvore de znodes
+- [ ] Salvar os dados na árvore de znodes
+- [ ] Salvar os dados no log
 - [ ] Implementar verificação dos thresholds
 - [ ] Implementar ação a ser tomada ao receber uma notificação do wathcer
 - [ ] Realizar a análise dos dados
